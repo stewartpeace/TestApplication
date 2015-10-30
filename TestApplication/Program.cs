@@ -16,11 +16,12 @@ namespace TestApplication
 			{
 				string lineValue = Console.ReadLine();
 				int maxPrimesToGenerate;
-				if (int.TryParse(lineValue, out maxPrimesToGenerate))
+				if (int.TryParse(lineValue, out maxPrimesToGenerate) && isValidNumber(maxPrimesToGenerate))
 				{
 					Console.WriteLine("You Entered:" + maxPrimesToGenerate);
 
-					//TODO:  
+					var primeNumbers = PrimeNumbersHelper.Generate(maxPrimesToGenerate);
+                    TablePrinter.Print(primeNumbers);
 					break;
 				}
 				else
@@ -31,7 +32,7 @@ namespace TestApplication
 					}
 					else
 					{
-						Console.WriteLine("Please specify a numceric value.");
+						Console.WriteLine("Please specify a numceric value which is greater or equal to 1.");
 						break;
                     }
 				}
@@ -39,6 +40,20 @@ namespace TestApplication
 			
 			Console.WriteLine("Press return to close application.");
 			Console.ReadLine();
+		}
+
+		/// <summary>
+		/// Checks number is valid.
+		/// </summary>
+		/// <param name="number">a number.</param>
+		/// <returns>true or false</returns>
+		static bool isValidNumber(int number)
+		{
+			var isValid = true;
+
+			isValid = (number >= 1);
+
+			return isValid;
 		}
 	}
 }

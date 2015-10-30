@@ -1,6 +1,9 @@
-﻿How To Run:
+﻿Requires:
+	.NetFrameWork V4.6
+	Visual Stuido 2013 or 2015
 
-Open TestApplication.sln in Visual Stuido 2015
+How To Run:
 
-Build and Run
+	Open TestApplication.sln in Visual Stuido 2013 or 2015
 
+	Build and Run
