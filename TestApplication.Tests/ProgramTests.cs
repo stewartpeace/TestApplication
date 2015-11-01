@@ -23,16 +23,17 @@ namespace TestApplication.Tests
 			{
 				Console.SetOut(stringWriter);
 				int numberToGenerate = 10;
-				var expectedOutput = "\t2\t3\t5\t7\t11\t13\t17\t19\t23\t" + Environment.NewLine + 
-									"2\t4\t6\t10\t14\t22\t26\t34\t38\t46\t" + Environment.NewLine +
-									"3\t6\t9\t15\t21\t33\t39\t51\t57\t69\t" + Environment.NewLine +
-									"5\t10\t15\t25\t35\t55\t65\t85\t95\t115\t" + Environment.NewLine +
-									"7\t14\t21\t35\t49\t77\t91\t119\t133\t161\t" + Environment.NewLine +
-									"11\t22\t33\t55\t77\t121\t143\t187\t209\t253\t" + Environment.NewLine +
-									"13\t26\t39\t65\t91\t143\t169\t221\t247\t299\t" + Environment.NewLine +
-									"17\t34\t51\t85\t119\t187\t221\t289\t323\t391\t" + Environment.NewLine +
-									"19\t38\t57\t95\t133\t209\t247\t323\t361\t437\t" + Environment.NewLine +
-									"23\t46\t69\t115\t161\t253\t299\t391\t437\t529\t";
+				var expectedOutput = "\t2\t3\t5\t7\t11\t13\t17\t19\t23\t29\t" + Environment.NewLine +
+									"2\t4\t6\t10\t14\t22\t26\t34\t38\t46\t58\t" + Environment.NewLine +
+									"3\t6\t9\t15\t21\t33\t39\t51\t57\t69\t87\t" + Environment.NewLine +
+									"5\t10\t15\t25\t35\t55\t65\t85\t95\t115\t145\t" + Environment.NewLine +
+									"7\t14\t21\t35\t49\t77\t91\t119\t133\t161\t203\t" + Environment.NewLine +
+									"11\t22\t33\t55\t77\t121\t143\t187\t209\t253\t319\t" + Environment.NewLine +
+									"13\t26\t39\t65\t91\t143\t169\t221\t247\t299\t377\t" + Environment.NewLine +
+									"17\t34\t51\t85\t119\t187\t221\t289\t323\t391\t493\t" + Environment.NewLine +
+									"19\t38\t57\t95\t133\t209\t247\t323\t361\t437\t551\t" + Environment.NewLine +
+									"23\t46\t69\t115\t161\t253\t299\t391\t437\t529\t667\t" + Environment.NewLine +
+									"29\t58\t87\t145\t203\t319\t377\t493\t551\t667\t841\t";
 
 				using (StringReader stringReader = new StringReader(string.Format("{0}{1}", numberToGenerate, Environment.NewLine)))
 				{

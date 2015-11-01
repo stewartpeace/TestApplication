@@ -1,33 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TestApplication
 {
+	/// <summary>
+	/// Prime Numbers Helper
+	/// </summary>
 	public class PrimeNumbersHelper
 	{
 		/// <summary>
 		/// Generates List of prime numbers for a specified amount.
 		/// </summary>
-		/// <param name="numberToGenerate"></param>
+		/// <param name="numberToGenerate">number of primes to generate.</param>
 		/// <returns>List of prime numbers.</returns>
 		public static List<int> Generate(int numberToGenerate)
 		{
-			var primeNumbers = new List<int>() { 2 } ;
+			var primeNumbers = new List<int>() { 2 };
 			var nextPrimeNumber = 3;
 			while (primeNumbers.Count < numberToGenerate)
 			{
-				int sqrt = (int)Math.Sqrt(nextPrimeNumber);
-				bool isPrime = true;
-				for (int i = 0; (int)primeNumbers[i] <= sqrt; i++)
+				var sqrt = (int)Math.Sqrt(nextPrimeNumber);
+				var isPrime = true;
+				for (var i = 0; primeNumbers[i] <= sqrt; i++)
 				{
-					if (nextPrimeNumber % primeNumbers[i] == 0)
+					if (nextPrimeNumber % primeNumbers[i] != 0)
 					{
-						isPrime = false;
-						break;
+						continue;
 					}
+					isPrime = false;
+					break;
 				}
 				if (isPrime)
 				{
@@ -35,14 +37,13 @@ namespace TestApplication
 				}
 				nextPrimeNumber += 2;
 			}
-
 			return primeNumbers;
 		}
 
 		/// <summary>
 		/// Create an 2D array for a given list of prime numbers.
 		/// </summary>
-		/// <param name="primeNumbers"></param>
+		/// <param name="primeNumbers">list of prime numbers.</param>
 		/// <returns>2D array for prime numbers.</returns>
 		public static int?[,] CreateArrayForPrimeNumbers(List<int> primeNumbers)
 		{
@@ -57,20 +58,25 @@ namespace TestApplication
 				array[i + 1, 0] = primeNumber;
 			}
 
-			//TODO: Can this be done in a one pass so that is calculates the values in the for loop above?
-			for (var i = 0; i < primeNumbers.Count; i++)
-			{
-				for (int y = 0; y < arraySize; y++)
-				{
-					int? value = array[i, y];
-					if (i > 0 & y > 0)
-					{
-						array[i, y] = array[i, 0] * array[y, 0];
-					}
-				};
-			}
+			MultiplyArrayValues(array, arraySize);
 
 			return array;
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="array"></param>
+		/// <returns></returns>
+		public static void MultiplyArrayValues(int?[,] array, int arraySize)
+		{
+			for (var x = 1; x < arraySize; x++)
+			{
+				for (int y = 1; y < arraySize; y++)
+				{
+					array[x, y] = array[x, 0].Value * array[y, 0].Value;
+				};
+			}
+        }
 	}
 }

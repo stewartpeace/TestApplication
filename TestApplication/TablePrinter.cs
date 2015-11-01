@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace TestApplication
 {
-	internal class TablePrinter
+	public class TablePrinter
 	{
 		/// <summary>
 		/// Print Prime Numbers to Console
 		/// </summary>
 		/// <param name="primeNumbers"></param>
-		internal static void Print(List<int> primeNumbers)
+		public static void Print(List<int> primeNumbers)
 		{
 			var array = PrimeNumbersHelper.CreateArrayForPrimeNumbers(primeNumbers);
 			PrintTable(array);
@@ -25,9 +25,9 @@ namespace TestApplication
 		static void PrintTable(int?[,] array)
 		{
 			var arraySize = array.GetUpperBound(0);
-			for (int x = 0; x < arraySize; x++)
+			for (int x = 0; x < arraySize + 1; x++)
 			{
-				for (int y = 0; y < arraySize; y++)
+				for (int y = 0; y < arraySize + 1; y++)
 				{
 					Console.Write(array[x, y] +"\t");
 				}
