@@ -9,7 +9,17 @@ namespace TestApplication
 	public class Program
 	{
 		public static void Main(string[] args)
-		{
+		{		
+			try
+			{
+				Console.SetBufferSize(200, 300);   // make sure buffer is bigger than window so you can scroll to left.
+				Console.WindowWidth = 200;
+			}
+			catch (System.IO.IOException)
+			{
+				/* The above lines will fail to execute in UnitTest mode. */
+			}
+
 			Console.WriteLine("Enter a max number of primes:");
 
 			while (true)
@@ -21,7 +31,7 @@ namespace TestApplication
 					Console.WriteLine("You Entered:" + maxPrimesToGenerate);
 
 					var primeNumbers = PrimeNumbersHelper.Generate(maxPrimesToGenerate);
-                    TablePrinter.Print(primeNumbers);
+					TablePrinter.Print(primeNumbers);
 					break;
 				}
 				else
@@ -34,10 +44,10 @@ namespace TestApplication
 					{
 						Console.WriteLine("Please specify a numceric value which is greater or equal to 1.");
 						break;
-                    }
+					}
 				}
 			}
-			
+
 			Console.WriteLine("Press return to close application.");
 			Console.ReadLine();
 		}
