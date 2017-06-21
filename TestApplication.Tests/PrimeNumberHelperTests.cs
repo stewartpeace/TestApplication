@@ -93,6 +93,36 @@ namespace TestApplication.Tests
 			CollectionAssert.AreEqual(expected, actual);
 
 		}
-			
-	}
+
+        /// <summary>
+        /// Test checking of valid prime numbers.
+        /// </summary>
+        [TestMethod]
+        public void PrimeNumberChecker()
+        {
+            List<int> validPrimes = new List<int> { 2, 3, 5, 7, 11 };
+
+            foreach (int number in validPrimes)
+            {
+                var actual = PrimeNumbersHelper.IsPrimeNumber(number);
+                Assert.IsTrue(actual, number + " is not a prime number");
+            }
+        }
+
+        /// <summary>
+        /// Test checking of invalid prime numbers.
+        /// </summary>
+        [TestMethod]
+        public void InvalidPrimeNumberChecker()
+        {
+            List<int> validPrimes = new List<int> { 1, 4, 6, 8, 9 };
+
+            foreach (int number in validPrimes)
+            {
+                var actual = PrimeNumbersHelper.IsPrimeNumber(number);
+                Assert.IsFalse(actual, number + " is a prime number");
+            }
+        }
+        
+    }
 }

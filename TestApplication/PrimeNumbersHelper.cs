@@ -22,7 +22,7 @@ namespace TestApplication
 			{
 				var sqrt = (int)Math.Sqrt(nextPrimeNumber);
 				var isPrime = true;
-				for (var i = 0; primeNumbers[i] <= sqrt; i++)
+                for (var i = 0; primeNumbers[i] <= sqrt; i++)
 				{
 					if (nextPrimeNumber % primeNumbers[i] != 0)
 					{
@@ -77,6 +77,21 @@ namespace TestApplication
 					array[x, y] = array[x, 0].Value * array[y, 0].Value;
 				};
 			}
+        }
+
+        public static bool IsPrimeNumber(int number)
+        {
+            if (number <= 1) return false;
+
+            for (int i = 2; i <= number / 2 ;  i++)
+            {
+                if (number % i == 0)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 	}
 }
